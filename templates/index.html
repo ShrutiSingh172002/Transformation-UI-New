@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+{% block title %}Home - Innovapte{% endblock %}
+
+{% block content %}
+<div class="container" style="background-color: #fdfdfd; font-family: 'Segoe UI', sans-serif;">
+
+  <div class="home-container" style="padding: 0 20px; max-width: 1200px; margin: auto; color: #111;">
+
+    <!-- Hero Section -->
+    <section style="text-align: center; padding: 120px 0 80px; background: linear-gradient(to right, #1e3a8a, #60a5fa); color: #fff; animation: fadeIn 1.5s ease;">
+      <h1 style="font-size: 48px; margin-bottom: 20px;">Welcome to <span style="color: #facc15;">Innovapte</span></h1>
+      <p style="font-size: 20px; max-width: 700px; margin: auto;">Securing digital futures through intelligent transformation — from legacy ERP to cloud-native <strong>SAP HANA</strong> and cyber resilience you can trust.</p>
+    </section>
+
+    <!-- CSS Animations -->
+    <style>
+      @keyframes fadeIn {
+        0% { opacity: 0; transform: translateY(40px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes glow {
+        0% { box-shadow: 0 0 8px #facc15; }
+        100% { box-shadow: 0 0 20px #1e3a8a; }
+      }
+
+      @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.03); }
+        100% { transform: scale(1); }
+      }
+
+      .card:hover {
+        transform: scale(1.03);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .fade-in-on-scroll {
+        opacity: 0;
+        transition: opacity 1s ease, transform 1s ease;
+        transform: translateY(30px);
+      }
+
+      .fade-in-on-scroll.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const faders = document.querySelectorAll('.fade-in-on-scroll');
+        const options = {
+          threshold: 0.2
+        };
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, options);
+
+        faders.forEach(el => observer.observe(el));
+      });
+    </script>
+
+    <!-- About Section -->
+    <section class="fade-in-on-scroll" style="padding: 80px 0; text-align: center;">
+      <h2 style="color: #1e3a8a; margin-bottom: 20px;">Who We Are</h2>
+      <p style="max-width: 900px; margin: auto;">Innovapte is a next-generation technology company driven by transformation. We specialize in cloud security, SAP HANA migrations, and managed services that enable agile, secure, and smart enterprises.</p>
+    </section>
+
+    <!-- Project Feature -->
+    <section class="fade-in-on-scroll" style="background-color: #f0f4ff; padding: 60px 30px; border-radius: 12px; margin-bottom: 60px;">
+      <h2 style="color: #1e3a8a; text-align: center;">Transformation in Action</h2>
+      <p style="max-width: 800px; text-align: center; margin: 20px auto 40px;">Our flagship SAP HANA transformation empowered a global manufacturer to achieve:</p>
+      <ul style="max-width: 800px; margin: auto; color: #111; line-height: 1.8;">
+        <li><strong><i class="fas fa-globe-americas" style="color:#1e3a8a;"></i> Global Coverage:</strong> Unified systems across North America, Asia, and Europe</li>
+        <li><strong><i class="fas fa-users" style="color:#1e3a8a;"></i> Trained Workforce:</strong> 200+ team members onboarded in 4 languages</li>
+        <li><strong><i class="fas fa-shield-alt" style="color:#1e3a8a;"></i> Total Uptime:</strong> End-to-end migration with zero downtime & full compliance</li>
+      </ul>
+    </section>
+
+    <!-- Services Section -->
+    <section class="fade-in-on-scroll" style="padding: 60px 0;">
+      <h2 style="text-align: center; color: #1e3a8a;">Our Services</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; margin-top: 30px;">
+
+        <!-- Card 1 -->
+        <div class="card" style="flex: 1 1 300px; background: #fff; border-radius: 10px; padding: 20px; border: 1px solid #eee; transition: transform 0.3s; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+          <h3 style="color: #1e3a8a;">Cybersecurity</h3>
+          <p>Comprehensive threat protection, zero-trust architecture, and compliance excellence tailored to your ecosystem.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card" style="flex: 1 1 300px; background: #fff; border-radius: 10px; padding: 20px; border: 1px solid #eee; transition: transform 0.3s; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+          <h3 style="color: #1e3a8a;">ERP Migration</h3>
+          <p>SAP HANA and Oracle Cloud transitions executed with speed, security, and strategic precision.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card" style="flex: 1 1 300px; background: #fff; border-radius: 10px; padding: 20px; border: 1px solid #eee; transition: transform 0.3s; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+          <h3 style="color: #1e3a8a;">Managed IT Services</h3>
+          <p>Proactive infrastructure monitoring, remote support, and intelligent automation — all in real-time.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="fade-in-on-scroll" style="background: #1e3a8a; color: white; padding: 80px 20px; border-radius: 12px;">
+      <h2 style="text-align: center; color: #facc15; margin-bottom: 40px;">What Our Clients Say</h2>
+      <div style="max-width: 1000px; margin: auto; display: flex; gap: 30px; flex-wrap: wrap; justify-content: center;">
+
+        <div style="flex: 1 1 300px; background-color: #ffffff11; padding: 20px; border-radius: 10px;">
+          <p style="font-style: italic;">“Migrating to HANAS with Innovapte was a game-changer. Clear communication, flawless delivery.”</p>
+          <span style="display: block; margin-top: 10px; color: #facc15;">— David N., COO, Globex Corp</span>
+        </div>
+
+        <div style="flex: 1 1 300px; background-color: #ffffff11; padding: 20px; border-radius: 10px;">
+          <p style="font-style: italic;">“The peace of mind we get from their security solutions is priceless.”</p>
+          <span style="display: block; margin-top: 10px; color: #facc15;">— Ritu B., CTO, InSyn</span>
+        </div>
+
+        <div style="flex: 1 1 300px; background-color: #ffffff11; padding: 20px; border-radius: 10px;">
+          <p style="font-style: italic;">“We trust Innovapte like an extension of our tech team. Reliable, efficient, and deeply human.”</p>
+          <span style="display: block; margin-top: 10px; color: #facc15;">— Omar Z., PMO Director</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="fade-in-on-scroll" style="text-align: center; margin: 80px 0;">
+      <h2 style="color: #1e3a8a; animation: pulse 2s infinite;">Ready to Lead with Confidence?</h2>
+              <p style="margin: 20px auto; max-width: 700px;">Connect with our experts and discover how Innovapte can drive your organization’s resilience, agility, and digital transformation forward.</p>
+      <a href="/contact" style="background-color: #facc15; color: #000; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; animation: glow 2s infinite alternate;">
+        Get in Touch
+      </a>
+    </section>
+
+  </div>
+</div>
+{% endblock %}

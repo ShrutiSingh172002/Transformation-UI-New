@@ -1,0 +1,223 @@
+{% extends 'base.html' %}
+{% block title %}Settings{% endblock %}
+{% block content %}
+<div class="settings-hero" style="background: linear-gradient(90deg, #1E3A8A 60%, #FFD700 100%); color: #fff; padding: 40px 0 30px 0; text-align: center; border-radius: 0 0 30px 30px; margin-bottom: 40px;">
+    <h1 style="font-size: 2.5em; font-weight: bold; margin-bottom: 10px; letter-spacing: 1px;">Settings</h1>
+    <p style="font-size: 1.2em; color: #fff; opacity: 0.95;">Manage your account preferences and configurations.</p>
+</div>
+
+<div class="settings-container" style="max-width: 900px; margin: 0 auto 60px auto;">
+    
+    <!-- Account Settings Section -->
+    <div class="settings-section" style="background: #fff; border-radius: 16px; box-shadow: 0 2px 16px rgba(30,58,138,0.10); padding: 32px; margin-bottom: 24px;">
+        <h2 style="color: #1E3A8A; font-size: 1.5em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
+            <i class="fas fa-user-cog" style="color: #FFD700;"></i>
+            Account Settings
+        </h2>
+        
+        <div class="setting-item" style="margin-bottom: 20px; padding: 16px; border: 1px solid #e0e0e0; border-radius: 8px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h3 style="margin: 0 0 4px 0; color: #333; font-size: 1.1em;">Profile Information</h3>
+                    <p style="margin: 0; color: #666; font-size: 0.9em;">Update your personal information and contact details</p>
+                </div>
+                <a href="{% url 'edit_profile' %}" class="btn-primary" style="background: #1E3A8A; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 0.9em;">Edit</a>
+            </div>
+        </div>
+        
+        <div class="setting-item" style="margin-bottom: 20px; padding: 16px; border: 1px solid #e0e0e0; border-radius: 8px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h3 style="margin: 0 0 4px 0; color: #333; font-size: 1.1em;">Change Password</h3>
+                    <p style="margin: 0; color: #666; font-size: 0.9em;">Update your account password for better security</p>
+                </div>
+                <a href="{% url 'password_change' %}" class="btn-primary" style="background: #1E3A8A; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 0.9em;">Change</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Settings Section -->
+    <div class="settings-section" style="background: #fff; border-radius: 16px; box-shadow: 0 2px 16px rgba(30,58,138,0.10); padding: 32px; margin-bottom: 24px;">
+        <h2 style="color: #1E3A8A; font-size: 1.5em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
+            <i class="fas fa-bell" style="color: #FFD700;"></i>
+            Notifications
+        </h2>
+        
+        <div class="setting-item" style="margin-bottom: 20px; padding: 16px; border: 1px solid #e0e0e0; border-radius: 8px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h3 style="margin: 0 0 4px 0; color: #333; font-size: 1.1em;">Email Notifications</h3>
+                    <p style="margin: 0; color: #666; font-size: 0.9em;">Receive updates about your projects and account</p>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+        
+        <div class="setting-item" style="margin-bottom: 20px; padding: 16px; border: 1px solid #e0e0e0; border-radius: 8px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h3 style="margin: 0 0 4px 0; color: #333; font-size: 1.1em;">Project Updates</h3>
+                    <p style="margin: 0; color: #666; font-size: 0.9em;">Get notified when your transformation projects complete</p>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy & Security Section -->
+    <div class="settings-section" style="background: #fff; border-radius: 16px; box-shadow: 0 2px 16px rgba(30,58,138,0.10); padding: 32px; margin-bottom: 24px;">
+        <h2 style="color: #1E3A8A; font-size: 1.5em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
+            <i class="fas fa-shield-alt" style="color: #FFD700;"></i>
+            Privacy & Security
+        </h2>
+        
+        <div class="setting-item" style="margin-bottom: 20px; padding: 16px; border: 1px solid #e0e0e0; border-radius: 8px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h3 style="margin: 0 0 4px 0; color: #333; font-size: 1.1em;">Two-Factor Authentication</h3>
+                    <p style="margin: 0; color: #666; font-size: 0.9em;">Add an extra layer of security to your account</p>
+                </div>
+                <button class="btn-secondary" style="background: #FFD700; color: #1E3A8A; padding: 8px 16px; border: none; border-radius: 6px; font-size: 0.9em; cursor: pointer;">Enable</button>
+            </div>
+        </div>
+
+        <div class="setting-item" style="margin-bottom: 20px; padding: 16px; border: 1px solid #e0e0e0; border-radius: 8px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h3 style="margin: 0 0 4px 0; color: #333; font-size: 1.1em;">Data Export</h3>
+                    <p style="margin: 0; color: #666; font-size: 0.9em;">Download a copy of your data and projects</p>
+                </div>
+                <button class="btn-secondary" style="background: #FFD700; color: #1E3A8A; padding: 8px 16px; border: none; border-radius: 6px; font-size: 0.9em; cursor: pointer;">Export</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Appearance Section -->
+    <div class="settings-section" style="background: #fff; border-radius: 16px; box-shadow: 0 2px 16px rgba(30,58,138,0.10); padding: 32px; margin-bottom: 24px;">
+        <h2 style="color: #1E3A8A; font-size: 1.5em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
+            <i class="fas fa-palette" style="color: #FFD700;"></i>
+            Appearance
+        </h2>
+        
+        <div class="setting-item" style="margin-bottom: 20px; padding: 16px; border: 1px solid #e0e0e0; border-radius: 8px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h3 style="margin: 0 0 4px 0; color: #333; font-size: 1.1em;">Theme</h3>
+                    <p style="margin: 0; color: #666; font-size: 0.9em;">Choose between light and dark themes</p>
+                </div>
+                <select style="padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px; background: white;">
+                    <option>Light</option>
+                    <option>Dark</option>
+                    <option>Auto</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #1E3A8A;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+  opacity: 0.8;
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
+}
+
+.setting-item:hover {
+  border-color: #1E3A8A;
+  box-shadow: 0 2px 8px rgba(30,58,138,0.1);
+  transition: all 0.2s ease;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle toggle switches
+    const toggles = document.querySelectorAll('.switch input[type="checkbox"]');
+    toggles.forEach(toggle => {
+        toggle.addEventListener('change', function() {
+            const settingName = this.closest('.setting-item').querySelector('h3').textContent;
+            console.log(`${settingName} changed to: ${this.checked}`);
+            // Here you would typically send this to your backend
+        });
+    });
+
+    // Handle buttons
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            const action = this.textContent;
+            const settingName = this.closest('.setting-item').querySelector('h3').textContent;
+            console.log(`${action} clicked for ${settingName}`);
+            // Here you would typically handle the button action
+        });
+    });
+
+    // Handle selects
+    const selects = document.querySelectorAll('select');
+    selects.forEach(select => {
+        select.addEventListener('change', function() {
+            const settingName = this.closest('.setting-item').querySelector('h3').textContent;
+            console.log(`${settingName} changed to: ${this.value}`);
+            // Here you would typically send this to your backend
+        });
+    });
+});
+</script>
+{% endblock %} 

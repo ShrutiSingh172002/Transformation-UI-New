@@ -1,0 +1,17 @@
+Django==5.0.14
+djangorestframework==3.16.0
+djangorestframework_simplejwt==5.5.0
+numpy==2.2.3
+openpyxl==3.1.5
+packaging==24.2
+pandas==2.2.3
+progressbar==2.5
+PyJWT==2.9.0
+pyparsing==3.2.3
+python-dateutil==2.9.0.post0
+pytz==2025.1
+pyrfc==3.3.1
+requests==2.32.3
+SQLAlchemy==2.0.38
+sqlparse==0.5.3
+urllib3==2.3.0

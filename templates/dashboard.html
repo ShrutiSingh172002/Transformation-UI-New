@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Transformations Dashboard{% endblock %}
+{% block content %}
+<div class="dashboard-hero" style="background: linear-gradient(90deg, #1E3A8A 60%, #FFD700 100%); color: #fff; padding: 40px 0 30px 0; text-align: center; border-radius: 0 0 30px 30px; margin-bottom: 40px;">
+    <h1 style="font-size: 2.5em; font-weight: bold; margin-bottom: 10px; letter-spacing: 1px;">Transformations Dashboard</h1>
+    <p style="font-size: 1.2em; color: #fff; opacity: 0.95;">Monitor and manage your transformation projects.</p>
+</div>
+<div class="dashboard-main" style="max-width: 900px; margin: 0 auto 60px auto;">
+    <div class="dashboard-stats" style="display: flex; justify-content: space-between; gap: 24px; margin-bottom: 36px;">
+        <div style="flex: 1; background: #1E3A8A; color: #FFD700; border-radius: 12px; padding: 28px 18px; text-align: center; box-shadow: 0 2px 8px rgba(30,58,138,0.08);">
+            <i class="fas fa-tasks" style="font-size: 2em; margin-bottom: 8px;"></i>
+            <div style="font-size: 2.2em; font-weight: bold;">5</div>
+            <div style="font-size: 1.1em;">Active Transformations</div>
+        </div>
+        <div style="flex: 1; background: #FFD700; color: #1E3A8A; border-radius: 12px; padding: 28px 18px; text-align: center; box-shadow: 0 2px 8px rgba(30,58,138,0.08);">
+            <i class="fas fa-check-circle" style="font-size: 2em; margin-bottom: 8px;"></i>
+            <div style="font-size: 2.2em; font-weight: bold;">12</div>
+            <div style="font-size: 1.1em;">Completed</div>
+        </div>
+        <div style="flex: 1; background: #fff; color: #1E3A8A; border-radius: 12px; padding: 28px 18px; text-align: center; box-shadow: 0 2px 8px rgba(30,58,138,0.08); border: 2px solid #1E3A8A;">
+            <i class="fas fa-exclamation-triangle" style="font-size: 2em; color: #FFD700; margin-bottom: 8px;"></i>
+            <div style="font-size: 2.2em; font-weight: bold;">1</div>
+            <div style="font-size: 1.1em;">Issues</div>
+        </div>
+    </div>
+    <div style="display: flex; gap: 32px; flex-wrap: wrap;">
+        <div style="flex: 2; min-width: 320px; background: #f8f9fa; border-radius: 12px; padding: 28px 22px; box-shadow: 0 2px 8px rgba(30,58,138,0.05);">
+            <h2 style="color: #1E3A8A; font-size: 1.3em; font-weight: bold; margin-bottom: 18px;">Recent Activity</h2>
+            <ul style="list-style: none; padding: 0; margin: 0; color: #333;">
+                <li style="margin-bottom: 12px;"><i class="fas fa-check" style="color: #FFD700; margin-right: 8px;"></i> Transformation "SAP Data Migration" completed successfully.</li>
+                <li style="margin-bottom: 12px;"><i class="fas fa-tasks" style="color: #1E3A8A; margin-right: 8px;"></i> New transformation "Legacy ERP Cleanup" started.</li>
+                <li style="margin-bottom: 12px;"><i class="fas fa-exclamation-triangle" style="color: #FFD700; margin-right: 8px;"></i> Issue detected in "Cloud Sync" transformation.</li>
+                <li><i class="fas fa-check" style="color: #FFD700; margin-right: 8px;"></i> Transformation "User Data Update" completed.</li>
+            </ul>
+        </div>
+        <div style="flex: 1; min-width: 220px; background: #fff; border-radius: 12px; padding: 28px 22px; box-shadow: 0 2px 8px rgba(30,58,138,0.05); display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <h2 style="color: #1E3A8A; font-size: 1.1em; font-weight: bold; margin-bottom: 18px;">Start New</h2>
+            <a href="#" style="display: inline-block; background: linear-gradient(90deg, #1E3A8A 70%, #FFD700 100%); color: #fff; font-weight: bold; padding: 14px 32px; border-radius: 8px; font-size: 1.1em; text-decoration: none; box-shadow: 0 2px 8px rgba(30,58,138,0.08); transition: background 0.2s, transform 0.2s;">
+                <i class="fas fa-plus-circle" style="margin-right: 10px;"></i> New Transformation
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %} 

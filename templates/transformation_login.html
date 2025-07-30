@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Login | MyCompany{% endblock %}
+
+{% block content %}
+
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <h2 style="text-align: center; color: #1E3A8A;">Login to Access Our Project</h2>
+  <br>
+  <br>
+
+
+  <form method="post" style="max-width: 400px; margin: auto; text-align: center;">
+    {% csrf_token %}
+    {% if error %}
+      <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <div style="margin-bottom: 15px;">
+      <label for="username">Username:</label><br>
+      <input type="text" id="username" name="username" required style="width: 100%; padding: 8px;">
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label for="password">Password:</label><br>
+      <input type="password" id="password" name="password" required style="width: 100%; padding: 8px;">
+    </div>
+
+    
+
+    <button type="submit" style="background-color: yellow; padding: 10px 20px; border: none; cursor: pointer;">
+      Login
+    </button>
+  </form>
+{% endblock %}

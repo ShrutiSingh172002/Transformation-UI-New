@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Terms & Conditions - Innovapte{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+
+<style>
+  .terms-wrapper {
+    background: linear-gradient(to bottom, #f0f4ff, #ffffff);
+    padding: 60px 20px;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .terms-container {
+    max-width: 1100px;
+    margin: auto;
+    background: white;
+    padding: 50px 40px;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  }
+
+  .terms-container h1 {
+    text-align: center;
+    font-size: 42px;
+    color: #1E3A8A;
+    margin-bottom: 10px;
+  }
+
+  .terms-container h2 {
+    font-size: 22px;
+    color: #1E3A8A;
+    margin-top: 40px;
+    border-left: 4px solid #facc15;
+    padding-left: 12px;
+  }
+
+  .terms-container p {
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 16px;
+  }
+
+  .terms-container ul {
+    padding-left: 20px;
+    color: #333;
+  }
+
+  .terms-container ul li {
+    margin-bottom: 10px;
+  }
+
+  .hero-banner {
+    background: linear-gradient(to right, #1E3A8A, #60A5FA);
+    color: white;
+    text-align: center;
+    padding: 80px 20px 60px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+  }
+
+  .hero-banner h1 {
+    font-size: 44px;
+    margin-bottom: 10px;
+  }
+
+  .hero-banner p {
+    font-size: 16px;
+    max-width: 700px;
+    margin: auto;
+    opacity: 0.9;
+  }
+
+  .highlight-box {
+    background: #fff7d6;
+    padding: 16px 20px;
+    border-left: 5px solid #facc15;
+    margin: 30px 0;
+    border-radius: 8px;
+  }
+
+</style>
+
+<div class="terms-wrapper">
+  <div class="hero-banner" data-aos="fade-down">
+    <h1>Terms & Conditions</h1>
+    <p>These Terms govern your access to and use of all Innovapte services. Please read them carefully before continuing.</p>
+  </div>
+
+  <div class="terms-container" data-aos="fade-up">
+    <p><strong>Last updated:</strong> December 15, 2024</p>
+
+    <p>Welcome to Innovapte. These Terms and Conditions (“Terms”) govern your use of our digital services, platform, and web properties. By using our site, you agree to comply with all guidelines below.</p>
+
+    <h2>Acceptance of Terms</h2>
+    <p>By accessing and using our services, you agree to these Terms. If you do not agree, please discontinue use of the platform. These Terms apply to all users, visitors, and clients of Innovapte. We reserve the right to change or update these conditions anytime.</p>
+
+    <h2>Description of Service</h2>
+    <p>We provide secure digital transformation services through cloud-based architecture, platform integrations, and professional support. This includes:</p>
+    <ul>
+      <li>Custom enterprise software</li>
+      <li>Access provisioning and identity management</li>
+      <li>Secure client portals</li>
+      <li>Technical support services</li>
+    </ul>
+
+    <h2>User Accounts</h2>
+    <p>You must provide accurate details to register. You are responsible for your credentials and any activity under your account.</p>
+
+    <div class="highlight-box">
+      For enterprise users: Never share your HANAS credentials. If you suspect account compromise, contact security@innovapte.com immediately.
+    </div>
+
+    <h2>Acceptable Use</h2>
+    <ul>
+      <li>Don’t use the platform to distribute harmful, misleading, or illegal content</li>
+      <li>Don’t impersonate others or falsify identity</li>
+      <li>Don’t interfere with the experience of other users</li>
+    </ul>
+
+    <h2>Intellectual Property</h2>
+    <p>All content, code, trademarks, and product architecture are owned by Innovapte unless otherwise stated. Reuse or redistribution without explicit permission is prohibited.</p>
+
+    <h2>User Content</h2>
+    <p>Any content you upload is your responsibility. By submitting it to our platform, you grant Innovapte the right to use, display, or improve upon it for operational or marketing purposes.</p>
+
+    <h2>Privacy Policy</h2>
+    <p>Your data is handled according to our <a href="/privacy" style="color:#1E3A8A;">Privacy Policy</a>. By using our site, you acknowledge and agree to our data processing practices.</p>
+
+    <h2>Termination</h2>
+    <p>We reserve the right to suspend or terminate user access at any time in case of a violation. Users may delete accounts by contacting our support team.</p>
+
+    <h2>Disclaimer</h2>
+    <ul>
+      <li>Service is offered “as is” with no guarantee of uptime or specific functionality</li>
+      <li>We make reasonable efforts to ensure accuracy, but do not promise it</li>
+    </ul>
+
+    <h2>Limitation of Liability</h2>
+    <p>Innovapte is not liable for any indirect damages resulting from service use, including data loss, downtime, or client-side issues beyond our control.</p>
+
+    <h2>Jurisdiction</h2>
+    <p>This agreement is governed by the laws of the jurisdiction where Innovapte operates. By using the platform, you consent to the courts of that jurisdiction.</p>
+
+    <h2>Amendments</h2>
+    <p>We may update these Terms at any time. We recommend reviewing them periodically. Material changes may be communicated via banner or email notice.</p>
+
+    <h2>Contact Us</h2>
+    <p>Have questions or concerns?</p>
+    <ul>
+      <li><strong>Company:</strong> Innovapte</li>
+      <li><strong>Email:</strong> info@innovapte.com</li>
+      <li><strong>Address:</strong> 4145 North Service Road, 2nd Floor, Burlington, Ontario, L7L 6A3</li>
+      <li><strong>Phone:</strong> +1-800-501-5128</li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

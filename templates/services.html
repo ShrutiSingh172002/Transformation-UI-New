@@ -1,0 +1,210 @@
+{% extends "base.html" %}
+{% block title %}Services - Innovapte{% endblock %}
+
+{% block content %}
+<style>
+  .services-hero {
+    background: linear-gradient(to right, #1E3A8A, #60A5FA);
+    color: white;
+    padding: 100px 20px 60px;
+    text-align: center;
+  }
+
+  .services-hero h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+  }
+
+  .services-hero p {
+    max-width: 800px;
+    margin: auto;
+    font-size: 18px;
+  }
+
+  .card-section {
+    background-color: #f9fbff;
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .feature-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    max-width: 1100px;
+    margin: auto;
+  }
+
+  .feature-card {
+    background: white;
+    border-radius: 10px;
+    padding: 30px 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+    transition: transform 0.3s ease;
+    flex: 1 1 300px;
+  }
+
+  .feature-card:hover {
+    transform: scale(1.03);
+  }
+
+  .feature-card h3 {
+    color: #1E3A8A;
+    margin-bottom: 10px;
+  }
+
+  .cta-section {
+    background-color: #1E3A8A;
+    padding: 60px 20px;
+    color: white;
+    text-align: center;
+    border-top: 5px solid #facc15;
+  }
+
+  .cta-section p {
+    max-width: 800px;
+    margin: auto;
+    font-size: 16px;
+  }
+
+  .cta-button {
+    margin-top: 20px;
+    background-color: #facc15;
+    color: #000;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .cta-button:hover {
+    background-color: #e6b500;
+  }
+</style>
+
+<!-- HERO -->
+<section class="services-hero">
+  <h1>Our Exclusive Digital Services</h1>
+  <p>Empowering innovation with transformation tools, real-time collaboration, and secure access — only for authenticated Innovapte project users.</p>
+</section>
+
+<!-- FEATURES SECTION -->
+<section class="card-section">
+  <h2 style="color: #1E3A8A; margin-bottom: 40px;">What We Offer</h2>
+  <div class="feature-cards">
+
+    <div class="feature-card">
+      <h3>Data Transformation Suite</h3>
+      <p>Convert and upload Excel or CSV data to structured <strong>HANAS-compatible formats</strong>. Encrypted, efficient, and fully validated.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Credential-Based Access</h3>
+      <p>Only licensed users can unlock proprietary project tools. Secure login ensures confidentiality and project integrity.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Guided Workflows</h3>
+      <p>Intuitive visual dashboards guide users through transformation processes with minimal friction and live documentation.</p>
+    </div>
+
+  </div>
+
+  <br><br>
+  <style>
+    .login-card {
+      max-width: 400px;
+      margin: 40px auto 0 auto;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(30,58,138,0.13);
+      padding: 40px 32px 32px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeIn 1s;
+    }
+    .login-card h2 {
+      text-align: center;
+      margin-bottom: 28px;
+      color: #1E3A8A;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .login-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .login-form label {
+      font-weight: 500;
+      color: #1E3A8A;
+      margin-bottom: 4px;
+    }
+    .login-form input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 1em;
+      background: #f1f5f9;
+      transition: border 0.2s;
+    }
+    .login-form input:focus {
+      border: 1.5px solid #1E3A8A;
+      outline: none;
+      background: #fff;
+    }
+    .login-btn {
+      background: linear-gradient(90deg, #1E3A8A, #60a5fa);
+      color: #fff;
+      padding: 12px 0;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1em;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 8px rgba(30,58,138,0.08);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .login-btn:hover {
+      background: linear-gradient(90deg, #60a5fa, #1E3A8A);
+      transform: translateY(-2px) scale(1.02);
+    }
+    .login-card .fa-user-circle {
+      font-size: 3.2rem;
+      color: #1E3A8A;
+      margin-bottom: 18px;
+      opacity: 0.85;
+    }
+    .login-card .forgot-link {
+      color: #1E3A8A;
+      text-decoration: underline;
+      font-size: 0.98em;
+      margin-top: 18px;
+      display: inline-block;
+    }
+    @media (max-width: 500px) {
+      .login-card {
+        padding: 24px 8px 18px 8px;
+      }
+    }
+  </style>
+
+</section>
+
+<!-- CTA FOR NON-CREDENTIAL USERS -->
+<section class="cta-section">
+  <h2 style="color: #facc15; font-size: 30px;">Need Access?</h2>
+  <p>Not enrolled yet? We offer tailored access based on your role, project needs, or service request. Tell us more about your requirements, and our team will get back to you within 24 hours.</p>
+  <a href="{% url 'contact' %}" class="cta-button">Contact Our Team</a>
+</section>
+
+{% endblock %}

@@ -1,0 +1,548 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}About Us - Innovapte{% endblock %}
+
+{% block content %}
+<!-- External Styles & Animation -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  .about-wrapper {
+    background: linear-gradient(135deg, #74b9ff, #0984e3);
+    position: relative;
+    padding: 100px 20px;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+
+  .about-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+    animation: float 15s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(180deg); }
+  }
+
+  .about-container {
+    max-width: 1400px;
+    margin: auto;
+    padding: 60px 40px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    z-index: 1;
+  }
+
+  .about-header {
+    text-align: center;
+    margin-bottom: 70px;
+    position: relative;
+  }
+
+  .about-header::after {
+    content: '';
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #4a90e2);
+    border-radius: 2px;
+  }
+
+  .about-header h1 {
+    font-size: 3.5rem;
+    background: linear-gradient(135deg, #667eea, #4a90e2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+
+  .about-header p {
+    font-size: 1.3rem;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .about-section {
+    margin-bottom: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 60px;
+    position: relative;
+  }
+
+  .about-section.reverse {
+    flex-direction: row-reverse;
+  }
+
+  .about-text {
+    flex: 1;
+    min-width: 350px;
+  }
+
+  .about-text h2 {
+    color: #667eea;
+    margin-bottom: 25px;
+    font-size: 2.5rem;
+    font-weight: 600;
+    position: relative;
+  }
+
+  .about-text h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #667eea, #4a90e2);
+    border-radius: 2px;
+  }
+
+  .about-text p {
+    color: #444;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    text-align: justify;
+    margin-bottom: 20px;
+  }
+
+  .about-img {
+    flex: 1;
+    min-width: 350px;
+    text-align: center;
+    position: relative;
+  }
+
+  .about-img img {
+    width: 100%;
+    max-width: 500px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 2;
+  }
+
+  .about-img img:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+  }
+
+  /* Image placeholder for broken images */
+  .about-img .img-placeholder {
+    width: 100%;
+    max-width: 500px;
+    height: 300px;
+    background: linear-gradient(135deg, #f8f9ff, #e8f0fe);
+    border: 2px dashed #667eea;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #667eea;
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .img-placeholder i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    opacity: 0.7;
+  }
+
+  .offers-section {
+    background: linear-gradient(135deg, #f8f9ff, #e8f0fe);
+    padding: 60px 40px;
+    border-radius: 20px;
+    margin: 80px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .offers-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(102, 126, 234, 0.05), transparent);
+    animation: wave 6s ease-in-out infinite;
+  }
+
+  @keyframes wave {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(180deg); }
+  }
+
+  .offers-section h2 {
+    text-align: center;
+    color: #667eea;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+  }
+
+  .value-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .value-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 15px;
+    border: 3px solid #667eea;
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+
+  .value-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #667eea, #4a90e2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .value-card:hover::before {
+    opacity: 0.05;
+  }
+
+  .value-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+    border-color: #4a90e2;
+  }
+
+  .value-card .icon {
+    font-size: 3rem;
+    color: #667eea;
+    margin-bottom: 20px;
+    display: block;
+    position: relative;
+    z-index: 1;
+  }
+
+  .value-card h3 {
+    color: #667eea;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+  }
+
+  .value-card p {
+    color: #555;
+    line-height: 1.6;
+    font-size: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .why-section {
+    text-align: center;
+    padding: 60px 40px;
+    background: linear-gradient(135deg, #74b9ff, #0984e3);
+    border-radius: 20px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .why-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="25" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="25" cy="75" r="1" fill="rgba(255,255,255,0.05)"/></svg>');
+    animation: twinkle 4s ease-in-out infinite;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+  }
+
+  .why-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+  }
+
+  .why-section p {
+    font-size: 1.2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.8;
+    position: relative;
+    z-index: 1;
+  }
+
+  .stats-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin: 60px 0;
+    padding: 40px;
+    background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stats-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: shimmer 4s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(30deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(30deg); }
+  }
+
+  .stat-item {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .stat-item .number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #2d3436;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .stat-item .label {
+    font-size: 1.1rem;
+    color: #2d3436;
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .about-section {
+      flex-direction: column;
+      gap: 40px;
+    }
+    
+    .about-section.reverse {
+      flex-direction: column;
+    }
+    
+    .about-header h1 {
+      font-size: 2.5rem;
+    }
+    
+    .about-container {
+      padding: 40px 20px;
+    }
+    
+    .offers-section {
+      padding: 40px 20px;
+    }
+    
+    .why-section {
+      padding: 40px 20px;
+    }
+  }
+</style>
+
+<div class="about-wrapper">
+  <div class="about-container" data-aos="fade-up">
+    <!-- Title -->
+    <div class="about-header">
+      <h1>About Us</h1>
+      <p>We're building the future of digital transformation — with bold ideas, strong foundations, and a people-first mindset that drives everything we do.</p>
+    </div>
+
+    <!-- Welcome Section: Image and Content Side by Side -->
+    <div class="about-section" data-aos="fade-right">
+      <div class="about-text">
+        <h2>Welcome to Innovapte</h2>
+        <p>At Innovapte, we bring innovation, security, and performance together to provide seamless access to HANAS. Our strength lies in our values — transparency, excellence, and empowerment.</p>
+        <p>Every tool we design, every system we upgrade, and every client we serve reinforces our belief in simple, powerful, human-focused solutions that make a real difference.</p>
+      </div>
+      <div class="about-img">
+        <img src="{% static 'image/Inno1.webp' %}" alt="Our Team" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="img-placeholder" style="display: none;">
+          <i class="fas fa-users"></i>
+          <span>Our Team</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mission Section: Content and Image Side by Side -->
+    <div class="about-section reverse" data-aos="fade-left">
+      <div class="about-text">
+        <h2>Our Mission</h2>
+        <p>To simplify enterprise technology and deliver secure, user-centered services that enhance productivity and trust. We believe digital transformation should be intuitive — not intimidating.</p>
+        <p>Our work is a reflection of that vision, combining cutting-edge technology with human-centered design to create solutions that truly make a difference.</p>
+      </div>
+      <div class="about-img">
+        <img src="{% static 'image/Innov2.webp' %}" alt="Our Mission" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="img-placeholder" style="display: none;">
+          <i class="fas fa-bullseye"></i>
+          <span>Our Mission</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="stats-section" data-aos="fade-up">
+      <div class="stat-item">
+        <span class="number">500+</span>
+        <span class="label">Happy Clients</span>
+      </div>
+      <div class="stat-item">
+        <span class="number">50+</span>
+        <span class="label">Projects Completed</span>
+      </div>
+      <div class="stat-item">
+        <span class="number">24/7</span>
+        <span class="label">Support Available</span>
+      </div>
+      <div class="stat-item">
+        <span class="number">99.9%</span>
+        <span class="label">Uptime Guarantee</span>
+      </div>
+    </div>
+
+    <!-- What We Offer -->
+    <div class="offers-section" data-aos="fade-up">
+      <h2>What We Offer</h2>
+      <div class="value-cards-grid">
+        <div class="value-card">
+          <i class="fas fa-shield-alt icon"></i>
+          <h3>Verified HANAS Access</h3>
+          <p>Robust, secure, and fully authenticated access for licensed partners and team members with enterprise-grade security.</p>
+        </div>
+
+        <div class="value-card">
+          <i class="fas fa-headset icon"></i>
+          <h3>Dedicated Support</h3>
+          <p>Round-the-clock response and proactive service delivery from real experts who care about your success.</p>
+        </div>
+
+        <div class="value-card">
+          <i class="fas fa-rocket icon"></i>
+          <h3>Continuous Innovation</h3>
+          <p>We evolve with your needs. Regular product upgrades ensure speed, security, and usability stay cutting-edge.</p>
+        </div>
+
+        <div class="value-card">
+          <i class="fas fa-users icon"></i>
+          <h3>People-First Approach</h3>
+          <p>We empower our clients by designing with empathy and understanding — and by listening deeply to your needs.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Why Choose Us -->
+    <div class="why-section" data-aos="fade-in">
+      <h2><i class="fas fa-star"></i> Why Choose Innovapte?</h2>
+      <p>Because we're not just another tech provider. We're partners in your transformation — here to solve, simplify, and strengthen your digital world. Let's build something remarkable together.</p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true,
+    offset: 100
+  });
+
+  // Add smooth scrolling animation for stats
+  const observerOptions = {
+    threshold: 0.5,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const numbers = entry.target.querySelectorAll('.number');
+        numbers.forEach(number => {
+          const target = parseInt(number.textContent);
+          if (!isNaN(target)) {
+            animateNumber(number, target);
+          }
+        });
+      }
+    });
+  }, observerOptions);
+
+  const statsSection = document.querySelector('.stats-section');
+  if (statsSection) {
+    observer.observe(statsSection);
+  }
+
+  function animateNumber(element, target) {
+    let current = 0;
+    const increment = target / 50;
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        element.textContent = target + (element.textContent.includes('%') ? '%' : element.textContent.includes('+') ? '+' : element.textContent.includes('/') ? '/7' : '');
+        clearInterval(timer);
+      } else {
+        element.textContent = Math.floor(current) + (element.textContent.includes('%') ? '%' : element.textContent.includes('+') ? '+' : element.textContent.includes('/') ? '/7' : '');
+      }
+    }, 20);
+  }
+</script>
+{% endblock %}

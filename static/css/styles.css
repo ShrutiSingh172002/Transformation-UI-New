@@ -1,0 +1,266 @@
+/* Reset and base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  min-height: 100%;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, 'Liberation Sans', sans-serif;
+  font-size: 16px;
+}
+
+/* Header */
+.header,
+.navbar-container {
+  background-color: #fff !important;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  height: 70px;
+}
+
+/* Logo */
+.logo img {
+  height: 50px;
+  width: auto;
+}
+
+/* Right section */
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Nav links */
+.nav {
+  display: flex;
+  gap: 30px;
+}
+
+.nav a,
+.user-icon {
+  color: #FFD700 !important;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #FFD700;
+  font-size: 16px;
+}
+
+/* User Menu */
+.user-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.user-icon {
+  display: inline-block;
+  cursor: pointer;
+  color: #FFD700;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  background: #fff;
+  min-width: 140px;
+  box-shadow: 0 2px 8px rgba(30,58,138,0.08);
+  border-radius: 6px;
+  z-index: 100;
+  margin-top: 8px;
+  text-align: left;
+  padding: 0;
+}
+
+.dropdown.show {
+  display: block;
+}
+
+.dropdown a {
+  display: block;
+  padding: 10px 16px;
+  color: #1E3A8A;
+  text-decoration: none;
+  border-bottom: 1px solid #eee;
+  font-size: 1em;
+  transition: background 0.2s;
+}
+
+.dropdown a:last-child {
+  border-bottom: none;
+}
+
+.dropdown a:hover {
+  background: #f0f4fa;
+}
+
+/* Style logout button to match dropdown links */
+.dropdown form {
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown button {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  color: #1E3A8A;
+  text-decoration: none;
+  border: none;
+  background: none;
+  font-size: 1em;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s;
+}
+
+.dropdown button:hover {
+  background: #f0f4fa;
+}
+
+/* Role badges */
+.role-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.role-badge.admin {
+  background: #dc3545;
+  color: white;
+}
+
+.role-badge.member {
+  background: #28a745;
+  color: white;
+}
+
+.role-badge.small {
+  padding: 2px 8px;
+  font-size: 0.8em;
+}
+
+/* Content below header */
+.content {
+  padding-top: 30px;
+  min-height: 100vh;
+}
+
+.container {
+  min-height: 100vh; 
+}
+
+.section {
+  min-height: 0; 
+}
+
+/* Footer */
+.footer {
+  position: relative;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.footer a.footer-link {
+  color: white;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer a.footer-link:hover {
+  text-decoration: underline;
+}
+
+/* Profile page specific styles */
+.profile-container {
+  max-width: 400px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(30,58,138,0.08);
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.profile-container h2 {
+  margin-bottom: 8px;
+  color: #1E3A8A;
+}
+
+.profile-container p {
+  color: #555;
+  margin-bottom: 16px;
+}
+
+.profile-container hr {
+  margin: 18px 0;
+  border: none;
+  border-top: 1px solid #eee;
+}
+
+.profile-container .btn {
+  background: #1E3A8A;
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-bottom: 10px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.profile-container .btn:hover {
+  background: #1e40af;
+}
+
+.profile-container .btn.admin-btn {
+  background: #dc3545;
+}
+
+.profile-container .btn.admin-btn:hover {
+  background: #c82333;
+}
+
+body > header.header, body > header.header > .navbar-container {
+  background-color: #fff !important;
+}
+
+body > header.header .nav a,
+body > header.header .user-icon {
+  color: #FFD700 !important;
+}
+
+h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+}

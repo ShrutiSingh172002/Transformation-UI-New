@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block title %}User List{% endblock %}
+{% block content %}
+<div style="max-width: 800px; margin: 40px auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(30,58,138,0.08); padding: 32px 24px;">
+    <h2 style="text-align: center; margin-bottom: 24px; color: #1E3A8A;">User Management</h2>
+    
+    {% if messages %}
+        {% for message in messages %}
+            <div style="padding: 12px; margin-bottom: 16px; border-radius: 6px; {% if message.tags == 'error' %}background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb;{% else %}background: #d4edda; color: #155724; border: 1px solid #c3e6cb;{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    
+    <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+            <thead>
+                <tr style="background: #f8f9fa;">
+                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Username</th>
+                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Email</th>
+                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Full Name</th>
+                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Role</th>
+                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">License ID</th>
+                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr style="border-bottom: 1px solid #dee2e6;">
+                    <td style="padding: 12px;">{{ user.username }}</td>
+                    <td style="padding: 12px;">{{ user.email|default:"-" }}</td>
+                    <td style="padding: 12px;">{{ user.get_full_name|default:"-" }}</td>
+                    <td style="padding: 12px;">
+                        <span class="role-badge {{ user.profile.role }} small">{{ user.profile.role|title }}</span>
+                    </td>
+                    <td style="padding: 12px;">{{ user.profile.license_id|default:"-" }}</td>
+                    <td style="padding: 12px;">
+                        {% if user.is_active %}
+                            <span style="color: #28a745;">Active</span>
+                        {% else %}
+                            <span style="color: #dc3545;">Inactive</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" style="padding: 20px; text-align: center; color: #6c757d;">No users found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="text-align: center; margin-top: 24px;">
+        <a href="{% url 'profile' %}" style="background: #1E3A8A; color: #fff; padding: 10px 20px; border-radius: 6px; text-decoration: none; display: inline-block;">Back to Profile</a>
+    </div>
+</div>
+{% endblock %} 

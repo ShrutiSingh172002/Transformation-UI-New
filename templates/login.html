@@ -1,0 +1,259 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
+  <style>
+    body {
+      background: linear-gradient(135deg, #e0e7ff 0%, #f8fafc 100%);
+      min-height: 100vh;
+      position: relative;
+    }
+    .animated-gradient-bar {
+      position: fixed;
+      left: 0;
+      width: 100vw;
+      height: 8px;
+      z-index: 10;
+      background: linear-gradient(270deg, #1E3A8A, #60a5fa, #facc15, #1E3A8A);
+      background-size: 600% 600%;
+      animation: gradientMove 8s ease-in-out infinite;
+    }
+    .animated-gradient-bar.top {
+      top: 0;
+    }
+    .animated-gradient-bar.bottom {
+      bottom: 0;
+    }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .login-vertical-wrapper {
+      max-width: 420px;
+      margin: 60px auto 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInSection 1.2s forwards;
+    }
+    .fade-in-section.delay {
+      animation-delay: 0.5s;
+    }
+    @keyframes fadeInSection {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .login-welcome-section {
+      background: linear-gradient(120deg, #1E3A8A 60%, #60a5fa 100%);
+      color: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 18px rgba(30,58,138,0.10);
+      padding: 36px 28px 28px 28px;
+      width: 100%;
+      text-align: center;
+      margin-bottom: 0;
+      position: relative;
+    }
+    .login-welcome-section h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      letter-spacing: 1px;
+      position: relative;
+      display: inline-block;
+    }
+    .login-welcome-section h1::after {
+      content: '';
+      display: block;
+      margin: 10px auto 0 auto;
+      width: 60%;
+      height: 4px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, #facc15, #60a5fa, #1E3A8A);
+      background-size: 200% 200%;
+      animation: underlineMove 4s linear infinite alternate;
+    }
+    @keyframes underlineMove {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+    .login-welcome-section p {
+      font-size: 1.08rem;
+      margin-bottom: 14px;
+      line-height: 1.6;
+      opacity: 0.97;
+    }
+    .login-welcome-section .quote {
+      font-style: italic;
+      font-size: 1.01rem;
+      margin-top: 12px;
+      color: #facc15;
+      opacity: 0.95;
+    }
+    .login-card {
+      width: 100%;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 18px rgba(30,58,138,0.10);
+      padding: 36px 28px 28px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeIn 1s;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .login-card:hover {
+      box-shadow: 0 8px 32px rgba(30,58,138,0.18);
+      transform: translateY(-2px) scale(1.02);
+    }
+    .login-card h2 {
+      text-align: center;
+      margin-bottom: 24px;
+      color: #1E3A8A;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .login-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .login-form label {
+      font-weight: 500;
+      color: #1E3A8A;
+      margin-bottom: 4px;
+    }
+    .login-form input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 1em;
+      background: #f1f5f9;
+      transition: border 0.2s;
+    }
+    .login-form input:focus {
+      border: 1.5px solid #1E3A8A;
+      outline: none;
+      background: #fff;
+    }
+    .login-btn {
+      background: linear-gradient(90deg, #1E3A8A, #60a5fa);
+      color: #fff;
+      padding: 12px 0;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1em;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 8px rgba(30,58,138,0.08);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .login-btn:hover {
+      background: linear-gradient(90deg, #60a5fa, #1E3A8A);
+      transform: translateY(-2px) scale(1.02);
+    }
+    .login-card .fa-user-circle {
+      font-size: 3.2rem;
+      color: #1E3A8A;
+      margin-bottom: 18px;
+      opacity: 0.85;
+    }
+    .login-card .forgot-link {
+      color: #1E3A8A;
+      text-decoration: underline;
+      font-size: 0.98em;
+      margin-top: 18px;
+      display: inline-block;
+    }
+    .message-ticker-wrapper {
+      width: 100%;
+      overflow: hidden;
+      margin: 0 0 18px 0;
+      height: 32px;
+      position: relative;
+      z-index: 2;
+    }
+    .message-ticker {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      animation: tickerMove 18s linear infinite;
+      font-size: 1.02em;
+      color: #1E3A8A;
+      font-weight: 500;
+      gap: 48px;
+    }
+    .message-ticker i {
+      margin-right: 8px;
+      color: #facc15;
+    }
+    @keyframes tickerMove {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    @media (max-width: 600px) {
+      .login-vertical-wrapper {
+        max-width: 98vw;
+        padding: 0 2vw;
+      }
+      .login-welcome-section, .login-card {
+        padding: 22px 6vw 18px 6vw;
+      }
+    }
+  </style>
+  <div class="animated-gradient-bar top"></div>
+  <div class="animated-gradient-bar bottom"></div>
+  <div class="login-vertical-wrapper">
+    <div class="login-welcome-section fade-in-section">
+      <h1>Welcome Back to Innovapte</h1>
+      <p>Secure your digital future with us. At Innovapte, we empower organizations to transform, innovate, and thrive in a connected world. Log in to access your personalized dashboard and take the next step in your digital journey.</p>
+      <div class="quote">“Transformation is not a future event. It is a present activity.”</div>
+    </div>
+    <div class="message-ticker-wrapper">
+      <div class="message-ticker">
+        <span><i class="fas fa-bolt"></i> Empowering digital transformation, one step at a time.</span>
+        <span><i class="fas fa-lock"></i> Your security is our top priority.</span>
+        <span><i class="fas fa-users"></i> Join a community of innovators at Innovapte.</span>
+      </div>
+    </div>
+    <div class="login-card fade-in-section delay">
+      <i class="fas fa-user-circle"></i>
+      <h2>Login</h2>
+      <form method="post" class="login-form">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div>
+          <label for="id_username">Username</label>
+          {{ form.username }}
+        </div>
+        <div>
+          <label for="id_password">Password</label>
+          {{ form.password }}
+        </div>
+        <button type="submit" class="login-btn">Login</button>
+      </form>
+      <a href="{% url 'password_reset' %}" class="forgot-link">Forgot password?</a>
+    </div>
+  </div>
+  <script>
+    // Trigger fade-in animation on load
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.fade-in-section').forEach(function(el) {
+        el.style.opacity = 1;
+        el.style.transform = 'translateY(0)';
+      });
+    });
+  </script>
+{% endblock %} 

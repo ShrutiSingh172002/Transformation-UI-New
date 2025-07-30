@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+  <style>
+    .profile-container {
+      max-width: 400px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(30,58,138,0.08);
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .role-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .role-badge.admin {
+      background: #dc3545;
+      color: white;
+    }
+    .role-badge.member {
+      background: #28a745;
+      color: white;
+    }
+    .role-badge.small {
+      padding: 2px 8px;
+      font-size: 0.8em;
+    }
+    .btn {
+      background: #1E3A8A;
+      color: #fff;
+      padding: 8px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      margin-bottom: 10px;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+      background: #1e40af;
+    }
+    .btn.admin-btn {
+      background: #dc3545;
+    }
+    .btn.admin-btn:hover {
+      background: #c82333;
+    }
+  </style>
+  
+  <div class="profile-container">
+    <div style="margin-bottom: 18px;">
+      <i class="fa fa-user-circle" style="font-size: 72px; color: #1E3A8A;"></i>
+    </div>
+    <h2>{{ user.get_full_name|default:user.username }}</h2>
+    <p>{{ user.email }}</p>
+    
+    <!-- Role Badge -->
+    <div style="margin-bottom: 16px;">
+      <span class="role-badge {{ user.profile.role }}">{{ user.profile.role|title }}</span>
+    </div>
+    
+    <hr>
+    <div style="text-align: left; margin-bottom: 18px;">
+      <p><strong>Username:</strong> {{ user.username }}</p>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <p><strong>Role:</strong> 
+        <span class="role-badge {{ user.profile.role }} small">{{ user.profile.role|title }}</span>
+      </p>
+      <p><strong>License ID:</strong> {{ user.profile.license_id }}</p>
+      <!-- Add more user info as needed -->
+    </div>
+    <a href="{% url 'edit_profile' %}" class="btn">Edit Profile</a>
+    <br>
+    {% if user.profile.role == 'admin' %}
+        <a href="{% url 'user_list' %}" class="btn admin-btn">Manage Users</a>
+        <br>
+    {% endif %}
+    <a href="{% url 'password_change' %}" style="font-size: 0.95em; color: #1E3A8A; text-decoration: underline;">Change Password</a>
+  </div>
+{% endblock %}

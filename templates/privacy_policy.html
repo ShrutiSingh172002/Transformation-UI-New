@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Privacy Policy - Innovapte{% endblock %}
+
+{% block content %}
+<!-- AOS Animation & Style Setup -->
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+
+<style>
+  .privacy-wrapper {
+    background: linear-gradient(to right, #f9fbff, #ffffff);
+    padding: 60px 20px;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .privacy-container {
+    max-width: 1100px;
+    margin: auto;
+    background: white;
+    padding: 50px 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+    animation: fadeIn 1s ease;
+  }
+
+  .privacy-container h1 {
+    text-align: center;
+    color: #1E3A8A;
+    font-size: 40px;
+    margin-bottom: 10px;
+  }
+
+  .privacy-container h2 {
+    margin-top: 40px;
+    color: #1E3A8A;
+    font-size: 24px;
+    border-left: 4px solid #facc15;
+    padding-left: 12px;
+  }
+
+  .privacy-container p {
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 18px;
+  }
+
+  .privacy-container ul {
+    padding-left: 20px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .privacy-container ul li {
+    margin-bottom: 10px;
+  }
+
+  .highlight-note {
+    background: #fefcbf;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-weight: 500;
+    margin: 30px 0;
+    border-left: 6px solid #facc15;
+    color: #111;
+  }
+</style>
+
+<div class="privacy-wrapper">
+  <div class="privacy-container" data-aos="fade-up">
+    <h1>Privacy Policy</h1>
+    <p style="text-align:center;"><strong>Last updated:</strong> December 15, 2024</p>
+
+    <div class="highlight-note" data-aos="fade-in">
+      Your trust is important to us. This Privacy Policy explains how we collect, use, and protect your personal data — with full transparency and care.
+    </div>
+
+    <p>Welcome to Innovapte. By using our website or services, you consent to the practices described in this policy.</p>
+
+    <h2>Information We Collect</h2>
+    <p>We collect the information you provide directly to us, including:</p>
+    <ul>
+      <li>Personal details (name, email, phone number)</li>
+      <li>Account and login credentials</li>
+      <li>Payment and billing info</li>
+      <li>Feedback, messages, and support data</li>
+    </ul>
+
+    <h2>Information We Collect Automatically</h2>
+    <p>When you visit our site, we also collect:</p>
+    <ul>
+      <li>Device and browser info</li>
+      <li>Pages viewed and navigation behavior</li>
+      <li>Cookies and geolocation data</li>
+    </ul>
+
+    <h2>How We Use Your Information</h2>
+    <ul>
+      <li>Improve, personalize, and secure our services</li>
+      <li>Process transactions and respond to inquiries</li>
+      <li>Notify you about technical updates or offers</li>
+      <li>Analyze usage and troubleshoot issues</li>
+    </ul>
+
+    <h2>Information Sharing</h2>
+    <p>We never sell your data. We may share it with:</p>
+    <ul>
+      <li>Trusted service providers (e.g. payment gateways)</li>
+      <li>In legal circumstances or for compliance</li>
+      <li>In the event of a merger or acquisition</li>
+      <li>With your clear consent</li>
+    </ul>
+
+    <h2>Data Security</h2>
+    <p>Your data is encrypted and handled with rigorous controls:</p>
+    <ul>
+      <li>End-to-end data encryption</li>
+      <li>Restricted system access</li>
+      <li>Regular vulnerability audits</li>
+    </ul>
+
+    <h2>Cookies & Tracking</h2>
+    <p>We use cookies for better UX and analytics:</p>
+    <ul>
+      <li><strong>Essential:</strong> Keep things running</li>
+      <li><strong>Analytics:</strong> Understand user behavior</li>
+      <li><strong>Functional:</strong> Remember settings</li>
+      <li><strong>Marketing:</strong> Show relevant offers</li>
+    </ul>
+
+    <h2>Your Rights</h2>
+    <ul>
+      <li>Access or download your personal data</li>
+      <li>Request edits, deletions, or export</li>
+      <li>Opt out of email marketing</li>
+    </ul>
+
+    <h2>Data Retention</h2>
+    <p>We retain your data only as long as needed for:</p>
+    <ul>
+      <li>Contractual or legal obligations</li>
+      <li>Ongoing services or support</li>
+    </ul>
+
+    <h2>Third-Party Links</h2>
+    <p>We are not responsible for external websites. We recommend reviewing their policies if you follow any links from our platform.</p>
+
+    <h2>Children's Privacy</h2>
+    <p>We do not knowingly collect data from children under 13. Parents or guardians should contact us if they believe such data was shared.</p>
+
+    <h2>International Transfers</h2>
+    <p>Your data may be processed outside your country of residence. We ensure safe handling according to global privacy standards.</p>
+
+    <h2>Changes to This Policy</h2>
+    <p>We may update this policy periodically. You’ll always find the latest version right here with a clear update date.</p>
+
+    <h2>Contact Us</h2>
+    <p>Got questions about how we protect your data?</p>
+    <p><strong>Email:</strong> privacy@innovapte.com</p>
+    <p><strong>Address:</strong> 4145 North Service Road, 2nd Floor, Burlington, Ontario, L7L 6A</p>
+    <p><strong>Phone:</strong> +1-800-501-5128</p>
+    <p>By using Innovapte, you acknowledge and agree to this policy. Thank you for trusting us.</p>
+  </div>
+</div>
+{% endblock %}
