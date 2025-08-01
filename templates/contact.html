@@ -554,17 +554,17 @@
       message: document.getElementById('message').value
     };
     
-    // Show thank you message
+    // popup message
     showThankYou();
     
     // Reset form
     this.reset();
     
-    // Here you would typically send the data to your server
+    
     console.log('Form submitted:', formData);
     
-    // For Django integration, you can uncomment this to actually submit:
-    // this.submit();
+    
+    
   });
 
   function showThankYou() {
@@ -591,7 +591,7 @@
   // Close on overlay click
   document.getElementById('overlay').addEventListener('click', closeThankYou);
 
-  // Add floating animation to form elements
+  // animation of cards
   document.querySelectorAll('.form-group input, .form-group textarea').forEach(element => {
     element.addEventListener('focus', function() {
       this.parentElement.style.transform = 'translateY(-3px)';
